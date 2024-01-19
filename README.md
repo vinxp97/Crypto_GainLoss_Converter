@@ -1,4 +1,6 @@
 # Crypto_GainLoss_Converter
+**Created in March 2023.**
+
 I used ChatGPT to help me create a python script that would convert gain/loss statements from a broker called Domain Money into the Koinly universal format. This was necessary as the crypto trades were fulfilled off-chain and could not be auto-imported into Koinly's crypto tax software. The script assumes all transactions are in USD and that there are no transaction fees, which may mean there was a spread for the trades that is not trackable. If the broker charges fees or if transactions occur in other currencies, the script would need to be updated.
 
 1. Date Conversion: The script parses the 'Date Acquired' and 'Date Sold or Disposed' columns from the original dataframe, which are in ISO 8601 format. These timestamps are first converted to datetime objects, then localized to UTC timezone using the pytz library. Subsequently, they are converted to the Eastern Time Zone (ET) and then formatted into strings in the form 'YYYY-MM-DD HH:MM TZ'. These strings are stored in the 'Koinly Date' column of the new dataframe.
